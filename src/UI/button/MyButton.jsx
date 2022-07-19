@@ -1,15 +1,14 @@
 
-import classes from './MyButton.module.scss'
+import './MyButton.scss'
 
 import {useNavigate } from 'react-router-dom'
 
-const MyButton = ({children, pathname}) => {
-  console.log(pathname)
+const MyButton = ({children, pathname, dark}) => {
   const navigate = useNavigate()
 
   return (
-    <div className={classes.buttonWrap}>
-      <button onClick={() => navigate(pathname)}>{children}</button>
+    <div className="buttonWrap">
+      <button onClick={() => pathname && navigate(pathname)}>{children}</button>
     </div>
   )
 }

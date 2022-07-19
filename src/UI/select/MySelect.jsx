@@ -2,19 +2,20 @@ import classes from './MySelect.module.scss'
 
 import {useState} from 'react'
 
-const MySelect = ({grid, setGrid}) => {
+const MySelect = ({data, index, setIndex}) => {
 
   return (
     <div className={classes.select}>
-      <button
-        class={grid ? classes.active : ''}
-        onClick={() => setGrid(true)}
-      >[Grid]</button>
-      /
-      <button
-        class={grid ? '' : classes.active}
-        onClick={() => setGrid(false)}
-      >[List]</button>
+      {
+        data.map((item, i) =>
+          <span key={i} style={{margin: 0}}>
+            <button className={i === index ? classes.active : ''}  onClick={() => setIndex(i)}>[{item}]</button>
+            {
+              (data.length - 1) === i ? '' : <span>/</span>
+            }
+          </span>
+        )
+      }
     </div>
   )
 }

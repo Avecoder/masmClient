@@ -1,56 +1,36 @@
-import {useState} from 'react'
-import {Link} from 'react-router-dom'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
-import Card from '../components/Card'
-import Select from '../UI/select/MySelect.jsx'
+
+import CardWrap from '../components/CardWrap'
+import Select from '../UI/select/MySelect'
 
 const DocsList = () => {
 
+  const { docs } = useSelector(state => state.posts)
 
-  const [grid, setGrid] = useState(true)
+  const isPostsLoading = docs.status === 'loading'
 
-  const [docsItem, setDocsItem] = useState([
-    {
-      img: 'preview',
-      id: 13,
-      label: 'Регистры',
-    },
-    {
-      img: 'preview',
-      id: 14,
-      label: 'Сегменты',
-    },
-    {
-      img: 'preview',
-      id: 15,
-      label: 'Стек',
-    },
-    {
-      img: 'preview',
-      id: 16,
-      label: 'Адресация',
-    },
-  ])
+  const [selectIndex, setSelectIndex] = useState(0)
+
+  const selectData = [
+    'Grid',
+    'List'
+  ]
+
+
+  if(isPostsLoading) {
+    return 'Loading...'
+  }
 
   return (
     <div className="container">
       <div className="d-flex jcb aic">
         <h2>Документация</h2>
-        <Select grid={grid} setGrid={setGrid}/>
+        <Select data={selectData} index={selectIndex} setIndex={setSelectIndex}/>
       </div>
-      <div className="card-wrap">
-        {
-          grid
-          ? docsItem.map(item =>
-            <Card {...item} />
-          )
-          : <ul>{
-              docsItem.map(({id, label}) =>
-                <li><Link to={`/article/${id}`}>{label}</Link></li>
-              )
-            }</ul>
-        }
-      </div>
+      <CardWrap posts={docs} selectIndex={selectIndex}/>
     </div>
   )
 }

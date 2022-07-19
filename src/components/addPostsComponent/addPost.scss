@@ -1,0 +1,19 @@
+
+
+.preview {
+  &-wrap {
+    width: 420px;
+    height: 250px;
+    margin: 40px 0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+
+    .buttonWrapIcon {
+      top: 24px;
+      right: 12px;
+      position: absolute;
+    }
+  }
+
+}

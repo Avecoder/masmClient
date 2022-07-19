@@ -4,8 +4,10 @@ import {Link} from 'react-router-dom'
 
 import {useState} from 'react'
 import HeaderSection from '../components/mainPageComponent/HeaderSection'
-import AllSections from '../components/mainPageComponent/AllSections'
 import LearnSection from '../components/mainPageComponent/LearnSection'
+import DocsSection from '../components/mainPageComponent/DocsSection'
+import VideoSection from '../components/mainPageComponent/VideoSection'
+import LabsSection from '../components/mainPageComponent/LabsSection'
 
 
 const Main = () => {
@@ -13,8 +15,11 @@ const Main = () => {
   return (
     <div>
       <HeaderSection/>
-      <AllSections/>
       <LearnSection/>
+      <DocsSection/>
+      <VideoSection/>
+      <LabsSection/>
+
     </div>
   )
 }

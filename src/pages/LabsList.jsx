@@ -1,31 +1,14 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
+import axios from '../axios'
+
+import { useSelector } from 'react-redux'
 
 const LabsList = () => {
 
-  const [labsList, useLabsList] = useState([
-    {
-      id: 1,
-      label: 'Вычисление целочисленных арифметических выражений',
-      number: 1
-    },
-    {
-      id: 2,
-      label: 'Вычисление целочисленных арифметических выражений',
-      number: 2
-    },
-    {
-      id: 3,
-      label: 'Вычисление целочисленных арифметических выражений',
-      number: 3
-    },
-    {
-      id: 4,
-      label: 'Вычисление целочисленных арифметических выражений',
-      number: 4
-    },
-  ])
+  const { labs } = useSelector(state => state.posts)
 
   return (
     <div className="container">
@@ -33,8 +16,8 @@ const LabsList = () => {
       <div className="list">
         <ul>
           {
-            labsList.map(({id, label, number}) =>
-              <li><Link to={`/article/${id}`}>[Лабораторная работа {number}]</Link> - {label}.</li>
+            labs.items.map(({_id, title, number}, i) =>
+              <li><Link to={`/article/${_id}`}>[Лабораторная работа {i += 1}]</Link> - {title}.</li>
             )
           }
         </ul>

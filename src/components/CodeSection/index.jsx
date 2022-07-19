@@ -1,32 +1,24 @@
 import './codeSection.scss'
 
-import {useState} from 'react'
+import Typewriter from "typewriter-effect"
 
-const CodeSection = (props) => {
-
-  const [data, setData] = useState([
-    '.code',
-    '.startup',
-    '-',
-    'lea dx,prompt',
-    '	mov ah,09h',
-    'int 21h',
-    '-',
-    'lea dx,n1',
-    'mov ah,09h',
-    'int 21h',
-    '-',
-  ])
-
-
+const CodeSection = ({code, mess}) => {
 
   return (
     <div className="code bg-dark">
-      {
-        data.map(item =>
-          item.trim() === '-' ? <div className="separator"></div> : <p>{item}</p>
-        )
-      }
+      <Typewriter onInit={(typewriter)=> {
+           typewriter
+            .typeString(mess)
+            .pauseFor(1000)
+            .deleteAll()
+
+            code.forEach(item => {
+              typewriter.typeString(item !== '-' ? `${item}<br/>` : `<div className='separator'></div><br>`)
+            })
+
+            typewriter.start()
+         }}
+       />
     </div>
   )
 }

@@ -1,12 +1,12 @@
 import MyButton from '../UI/button/MyButton'
 
-const Card = ({img, id, label}) => {
+const Card = ({imageURL, _id, title, type}) => {
   return (
     <div className="card">
-      <img src={`../src/assets/img/${img}.png`} alt=""/>
+      <div className="card-preview" style={{backgroundImage: `url(${imageURL})`}}></div>
       <div className="d-flex jcb mt20 possy">
-        <h3>[{label}]</h3>
-        <MyButton pathname={`/article/${id}`}>Подробнее</MyButton>
+        <h3>{title?.substr(0, 18)}...</h3>
+        <MyButton pathname={`/article/${_id}`}>Подробнее</MyButton>
       </div>
     </div>
   )

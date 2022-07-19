@@ -1,0 +1,21 @@
+@import '../../styles/variables.scss';
+
+.post {
+  &-list {
+    margin-top: 40px;
+    ul {
+      li {
+        margin-bottom: 34px;
+      }
+    }
+    &__button {
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 14px;
+      .buttonWrapIcon:nth-child(2n) {
+        button {
+          background: $orange !important;
+        }
+      }
+    }
+  }
+}

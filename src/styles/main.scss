@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import './media.scss';
 
 *{
   padding: 0;
@@ -14,6 +15,18 @@
 ::-moz-selection {
   background-color: #001;
   color: #fff;
+}
+
+code {
+  background: #eee;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+
+table {
+  code {
+    background: #fff;
+  }
 }
 
 $bg-color: #fff;
@@ -76,8 +89,28 @@ h3 {
   display: flex;
 }
 
+.d-grid {
+  display: grid;
+}
+
 .jcb {
   justify-content: space-between;
+}
+
+.jce {
+  justify-content: flex-end;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.fdc {
+  flex-direction: column;
+}
+
+.aic {
+  align-items: center;
 }
 
 a{
@@ -117,8 +150,8 @@ ul {
       content: url('../assets/img/mark.svg');
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0;
+      transform: translateY(3px);
     }
   }
 }
@@ -127,14 +160,16 @@ ul {
 .card {
   padding: 15px 24px;
   border: 1px solid #000;
-  width: fit-content;
-  height: fit-content;
   position: relative;
   background: #fff;
-  margin: 30px 10px;
-  max-width: 31%;
-  img{
+  width: 100%;
+  &-preview {
     width: 100%;
+    margin: 10px auto 20px;
+    height: 160px;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
   }
   &:after {
     content: url('../assets/img/pattern.png');
@@ -148,11 +183,13 @@ ul {
     z-index: -1;
   }
   &-wrap {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 22px;
+    grid-row-gap: 28px;
+  }
+  h3 {
+    font-size: 14px;
   }
 }
 
@@ -171,18 +208,58 @@ ul {
 
 section {
   padding: 200px 0;
+  p {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 
 .footer {
-  text-align: center;
-  padding: 80px 0 70px;
+  padding: 80px 0 100px;
+  align-items: flex-end;
+  .sociable {
+    &-label {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 18px;
+    }
+    &-inner {
+      margin-top: 20px;
+      a {
+        margin-right: 28px;
+      }
+    }
+  }
+
+  .back-top {
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 18px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 
 .bg-dark {
-  background: #000;
+  background: $black;
   a, h1, h2, p, span {
     color: #fff;
+  }
+
+  .card {
+    background: $black;
+    color: #fff;
+    &:after {
+      content: url('../assets/img/green-pattern.png')
+    }
   }
 
   ::selection {
@@ -195,12 +272,57 @@ section {
   }
 }
 
+.bg-green {
+  background: $green;
+}
+.c-green {
+  color: $green !important;
+}
+
+.bg-orange {
+  background: $orange;
+}
+
 .mt20 {
   margin-top: 20px;
 }
 
+.mb20 {
+  margin-bottom: 20px !important;
+}
+
 .article {
   max-width: 800px;
+  a {
+    font-size: 14px;
+    &:before {
+      content: '['
+    }
+    &:after {
+      content: ']'
+    }
+  }
+
+  pre {
+    margin: 60px 0;
+    code {
+      background: #000;
+      color: #fff;
+      padding: 28px 22px;
+      margin: 30px 0;
+      display: block;
+      line-height: 20px;
+      font-size: 12px;
+      &::selection {
+        background-color: #fff;
+        color: #000;
+      }
+      &::-moz-selection {
+        background-color: #fff;
+        color: #000;
+      }
+    }
+  }
 }
 
 
@@ -215,6 +337,9 @@ section {
       &:before {
         display: none;
       }
+      &.active {
+        text-decoration: underline;
+      }
     }
   }
   &-wrap {
@@ -227,4 +352,112 @@ section {
 
 .possy {
   position: sticky;
+}
+
+
+.button-hooks {
+  background: none;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.input {
+  background: #000;
+  outline: none;
+  padding: 6px 20px;
+  position: relative;
+  border: none;
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  width: 100%;
+  &-error {
+    background: $orange;
+    color: #000;
+    &::placeholder {
+      color: #000;
+    }
+  }
+  &::selection {
+    background-color: #fff;
+    color: #001;
+  }
+}
+
+.alert {
+  color: $orange;
+  padding: 2px 6px;
+  display: block;
+  font-size: 12px;
+}
+
+.form-container {
+  max-width: 300px;
+  width: 100%;
+}
+
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.server-error {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &::selection {
+    background-color: #fff;
+    color: #000;
+  }
+  &::-moz-selection {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+.separator {
+  height: 30px;
+}
+
+table {
+  margin-bottom: 24px;
+  tr {
+    td {
+      border: 1px solid #000;
+      text-align: center;
+      padding: 3px 30px;
+    }
+    th{
+      padding-bottom: 6px;
+    }
+  }
 }

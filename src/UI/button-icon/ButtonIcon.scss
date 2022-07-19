@@ -1,0 +1,64 @@
+@import '../../styles/variables.scss';
+
+
+.buttonWrapIcon {
+  position: relative;
+  display: inline-block;
+  z-index: 3;
+  cursor: pointer;
+  button {
+    background: $green;
+    border: 1px solid #000;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 0 10px;
+    margin-left: 4px;
+    transform: translate(-5px, -4px);
+    transition: .3s all ease;
+    z-index: 2;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &:after{
+    width: 32px;
+    height: 32px;
+    content: '';
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: transparent;
+    z-index: -1 !important;
+    transition: .3s all ease;
+    transform: translate(4px, 3px);
+    background-image: url('../../assets/img/pattern.png');
+  }
+  &:hover {
+    button {
+      transform: translate(-3px, -2px);
+    }
+    &:after {
+      background: #000;
+      transform: translate(3px, 1px);
+      z-index: -1 !important;
+    }
+  }
+  &:active {
+    button {
+      background: #000;
+      color: #fff;
+      transform: translate(0, 0);
+    }
+    &:after {
+      background: #000;
+      transform: translate(4px, -1px);
+    }
+  }
+}

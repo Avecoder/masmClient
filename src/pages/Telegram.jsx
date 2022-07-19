@@ -1,10 +1,10 @@
 
-
+import Loading from '../components/Loading'
 
 
 const Telegram = () => {
   return (
-    <h1>Telegram</h1>
+    <Loading/>
   )
 }
 

@@ -1,0 +1,37 @@
+
+
+.adminWrap {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 50px;
+}
+
+
+.adminButtons {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  span {
+    margin: 0 14px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .adminWrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 100px;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 899px) {
+  .adminWrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 100px;
+    max-width: 100%;
+  }
+}
