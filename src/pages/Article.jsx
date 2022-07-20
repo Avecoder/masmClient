@@ -69,7 +69,7 @@ const Article = () => {
         {
           data.category === 'video'
           ? <div>
-              <ReactPlayer url={data.text} />
+              <ReactPlayer controls={true} url={data.text} />
               <p className="mt20">Обязательно перейдите и подпишитесь на канал!</p>
             </div>
           : <ReactMarkdown remarkPlugins={[gfm]} children={data.text}/>

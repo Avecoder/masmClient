@@ -65,6 +65,13 @@
       height: 350px !important;
     }
 
+    h2 {
+      width: 75%;
+    }
+
+    .anchor-wrap {
+      display: none;
+    }
 
     .card {
       &-preview {
@@ -156,6 +163,10 @@
     }
   }
 
+  .card-preview {
+     height: 220px !important;
+  }
+
   .video-section {
     &__posts {
       grid-template-columns: 1fr;
@@ -200,9 +211,7 @@
     padding-left: 0 !important;
   }
 
-  .anchor-wrap {
-    display: none;
-  }
+
 
   .article {
     width: 100%;

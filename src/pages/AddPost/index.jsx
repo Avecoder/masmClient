@@ -99,7 +99,13 @@ const AddPost = () => {
 
   return (
     <div className="container">
-      <h2>Добавить пост</h2>
+      <h2>
+        {
+          id 
+          ? 'Обновить пост'
+          : 'Добавить пост'
+        }
+      </h2>
       <div className={classes.addPost}>
         <div className="add-post__main">
           <input placeholder="Заголовок" className="input" value={title} onChange={e => setTitle(e.target.value)}/>

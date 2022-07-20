@@ -12,6 +12,8 @@ const Footer = (props) => {
     })
   }
 
+  const year = new Date()
+
   return (
     <div className="footer d-flex jcb container">
       <div className="sociable">
@@ -29,7 +31,7 @@ const Footer = (props) => {
         </div>
       </div>
       <div className="copyrigth">
-        SUT © 2022
+        SUT © {year.getFullYear()}
       </div>
       <div className="back-top">
         <button onClick={scrollToTop}>
