@@ -1,9 +1,6 @@
 import './mainpage.scss'
-
 import { useState } from 'react'
-
 import MyButton from '../../UI/button/MyButton'
-import CodeSection from '../CodeSection'
 import Card from '../Card'
 
 import { useSelector } from 'react-redux'

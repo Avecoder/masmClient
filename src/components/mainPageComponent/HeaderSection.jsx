@@ -1,7 +1,7 @@
 import './mainpage.scss'
 
 import MyButton from '../../UI/button/MyButton'
-import CodeSection from '../codeSection'
+import CodeSection from '../codeSection/index'
 
 import { code } from '../../messages'
 
