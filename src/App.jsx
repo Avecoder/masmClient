@@ -21,6 +21,7 @@ function App() {
   const { docs, labs, video} = useSelector(state => state.posts)
 
   useEffect(() => {
+    alert(window.location.href)
     dispatch(fetchGetMe())
     dispatch(fetchDocsPosts())
     dispatch(fetchLabsPosts())
