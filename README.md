@@ -54,20 +54,3 @@ npm run build
 
 - React hook form
 
-> 21211221
-122121
-212121
-
->34343434
-
-dsdsds
-
-- [ ] Mercury
-- [x] Venus
-- [x] Earth (Orbit/Moon)
-- [x] Mars
-- [ ] Jupiter
-- [ ] Saturn
-- [ ] Uranus
-- [ ] Neptune
-- [ ] Comet Haley
